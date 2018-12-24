@@ -6,3 +6,5 @@
 @e-mail: cauchyguo@gmail.com
 @time: 2018/12/24 23:31
 """
+print("Hello world")
+print("Good Night! Github!")
