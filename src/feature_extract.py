@@ -976,7 +976,6 @@ if __name__ == '__main__':
         goods.to_csv(finalpath, index=False)
         print('feature' + str(i + 1) + 'finished.')
 
-
     for i in range(6):
         trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsSaleTrainSet' + str(i + 1) + '.csv'
         df = pd.read_csv(trainPath)
@@ -984,7 +983,6 @@ if __name__ == '__main__':
         sale_feature_file_name = r'E:\PycharmProjects\Task2Plus\features\sale7feature' + str(i + 1) + '.csv'
         frame.to_csv(sale_feature_file_name, index=False)
         print('Feature' + str(i + 1) + 'finished!')
-
 
     #
     # for i in range(8):
@@ -1013,14 +1011,13 @@ if __name__ == '__main__':
     #
     # # 得到daliy测试集关于goods和brand的对应特征
 
-
     TestSale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsSaleTestSet.csv')
     frame = add_sale_lastweek_feature(TestSale)
     frame.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestSale7feature.csv', index=False)
 
     Testdaily = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsDailyTestSet.csv')
     Testgoods = add_goods_lastweek_feature(Testdaily)
-    Testgoods.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestDaily7feature.csv',index=False)
+    Testgoods.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestDaily7feature.csv', index=False)
 
     # promote feature
 

@@ -7,9 +7,10 @@
 @time: 2018/10/15 16:57
 """
 import pandas as pd
-import numpy as np # 快速操作结构数组的工具
+import numpy as np  # 快速操作结构数组的工具
 import matplotlib.pyplot as plt  # 可视化绘制
-from sklearn.linear_model import Lasso,LassoCV,LassoLarsCV   # Lasso回归,LassoCV交叉验证实现alpha的选取，LassoLarsCV基于最小角回归交叉验证实现alpha的选取
+from sklearn.linear_model import Lasso, LassoCV, \
+    LassoLarsCV  # Lasso回归,LassoCV交叉验证实现alpha的选取，LassoLarsCV基于最小角回归交叉验证实现alpha的选取
 import pandas as pd
 import numpy as np
 import lightgbm as lgb
@@ -17,6 +18,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from sklearn import metrics
+
 scaler = MinMaxScaler()
 datas = list()
 target = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\submit_example.csv')
@@ -44,7 +46,7 @@ X_val = val[val.columns[2:-5]]
 X_val = scaler.fit_transform(X_val)
 
 model = Lasso(alpha=0.01)
-model.fit(X_train,y_train)
+model.fit(X_train, y_train)
 
 predicted = model.predict(X_val)
 val['pre'] = pd.Series(predicted)

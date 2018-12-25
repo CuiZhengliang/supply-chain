@@ -7,6 +7,7 @@
 @time: 2018/10/21 18:57
 """
 import pandas as pd
+
 if __name__ == '__main__':
     for i in range(1):
         sale_feature_file_name = r'E:\PycharmProjects\Task2Plus\TestSets\TestDaily7feature.csv'

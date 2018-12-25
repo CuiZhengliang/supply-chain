@@ -27,7 +27,6 @@ if __name__ == '__main__':
     # GoodsDailyTestSet = goodsdaily[(goodsdaily.data_date >= 20171217) & (goodsdaily.data_date <= 20180316)]
     # GoodsDailyTestSet.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsDailyTestSet.csv',index=False)
 
-
     # #for goods sale
     # goodsale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goodsalePlus.csv')
     #
@@ -48,7 +47,7 @@ if __name__ == '__main__':
     # GoodsSaleTestSet = goodsale[(goodsale.data_date >= 20171217) & (goodsale.data_date <= 20180316)]
     # GoodsSaleTestSet.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsSaleTestSet.csv',index=False)
 
-    #for market plan
+    # for market plan
     # market = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\marketing.csv')
     # trainset1 = market[(market.data_date >= 20170503) & (market.data_date <= 20170731)]
     # trainset2 = market[(market.data_date >= 20170510) & (market.data_date <= 20170807)]
@@ -138,8 +137,8 @@ if __name__ == '__main__':
     labelset5 = goodsale[(goodsale.data_date >= 20170825) & (goodsale.data_date <= 20170928)]
     labelset6 = goodsale[(goodsale.data_date >= 20170901) & (goodsale.data_date <= 20171005)]
 
-    labelsets = [labelset1,labelset2,labelset3,labelset4,labelset5,labelset6]
+    labelsets = [labelset1, labelset2, labelset3, labelset4, labelset5, labelset6]
 
     for i in range(len(labelsets)):
-        file_name = r'E:\PycharmProjects\Task2Plus\LabelSets\labelset' + str(i+1) + '.csv'
-        labelsets[i].to_csv(file_name,index=False)
+        file_name = r'E:\PycharmProjects\Task2Plus\LabelSets\labelset' + str(i + 1) + '.csv'
+        labelsets[i].to_csv(file_name, index=False)
