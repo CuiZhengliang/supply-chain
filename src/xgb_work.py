@@ -104,4 +104,4 @@ if __name__ == '__main__':
     y_pred = model.predict(dataset3)
     target['week5'] = pd.Series(y_pred)
 
-    target.to_csv(r'E:\PycharmProjects\Task2Plus\output\testXgb3.csv',index=False)
+    target.to_csv(r'E:\PycharmProjects\Task2Plus\output\xgb_reault.csv',index=False)

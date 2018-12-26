@@ -14,22 +14,14 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import GridSearchCV
 
-params = {
-    # 'task': 'train',
-    'boosting': 'gbdt',  # 设置提升类型
-    'application': 'regression_l2', # 目标函数
-    'metric': {'rmse'},  # 评估函数
-    'max_depth':8,
-    # 'min_data':30,
-    'num_leaves': 50,   # 叶子节点数
-    'learning_rate': 0.03,  # 学习速率
-    'feature_fraction': 0.8, # 建树的特征选择比例
-    'max_bin':2,
-    'min_data_in_leaf':10,
-    # 'bagging_fraction': 0.8, # 建树的样本采样比例
-    # 'bagging_freq': 5,  # k 意味着每 k 次迭代执行bagging
-    'verbose': 1, # <0 显示致命的, =0 显示错误 (警告), >0 显示信息
-}
+params = {'boosting_type': 'gbdt',
+          'objective': 'regression',
+          'learning_rate': 0.03,
+          'lambda_l1': 0.1,
+          'lambda_l2': 0.2,
+          'max_depth': 25,
+          'num_leaves': 31,
+          'min_child_weight': 25}
 if __name__ == '__main__':
     scaler = MinMaxScaler()
     datas = list()

@@ -15,19 +15,19 @@ from sklearn.preprocessing import MinMaxScaler
 
 if __name__ == '__main__':
     datas = list()
-    target = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\submit_example.csv')
-    relation = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goods_sku_relation.csv')
+    target = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\submit_example.csv')
+    relation = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goods_sku_relation.csv')
     target = pd.merge(target[['sku_id']], relation, on='sku_id')
     goods_list = target.goods_id.unique()
 
     for i in range(6):
-        trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\trainAllWithLabel' + str(i + 1) + '.csv'
+        trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\trainAllWithLabel' + str(i + 1) + '.csv'
         traindata = pd.read_csv(trainPath)
         traindata.drop_duplicates(inplace=True)
         datas.append(traindata)
     dataset = pd.concat(datas, axis=0)
 
-    online_test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TrainSets\trainWithLabel1.csv')
+    online_test = pd.read_csv(r'E:\PycharmProjects\supply-chain\TrainSets\trainWithLabel1.csv')
     train_xy, offline_test = train_test_split(dataset, test_size=0.2, random_state=21)
     train, val = train_test_split(train_xy, test_size=0.2, random_state=21)
 
@@ -161,10 +161,10 @@ if __name__ == '__main__':
     # online_test[['sku_id', 'week5', 'pre']].to_csv(r'E:\PycharmProjects\supply-chain\var_test\online_week5.csv', index=False)
     #
 
-    test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestAllPlus.csv')
+    test = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\TestAllPlus.csv')
     test.fillna(0, inplace=True)
     test[test.columns[-11:]] = test[test.columns[-11:]].astype('int')
     # X_test = scaler.fit_transform(test[test.columns[2:]])
     preds_test = gbm.predict(test[test.columns[2:]])
     test['week5'] = pd.Series(preds_test)
-    test[['sku_id', 'week5']].to_csv(r'E:\PycharmProjects\Task2Plus\lgb_results\weekPlus5.csv', index=False)
+    test[['sku_id', 'week5']].to_csv(r'E:\PycharmProjects\supply-chain\lgb_results\weekPlus5.csv', index=False)
