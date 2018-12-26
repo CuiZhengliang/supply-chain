@@ -39,7 +39,7 @@ if __name__ == '__main__':
     dataset = pd.concat(datas, axis=0)
     test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestAllPlus.csv')
     test.fillna(0,inplace=True)
-    # target = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\submit_example.csv')
+    # target = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\submit_example.csv')
     # test = pd.merge(test,target,on='sku_id')
 
     target = test[['sku_id']]

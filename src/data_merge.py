@@ -12,25 +12,25 @@ import pandas as pd
 if __name__ == '__main__':
     # 修正data
     # for i in range(8):
-    #     featurepath = r'E:\PycharmProjects\Task2Plus\features\dailyfeature' + str(i+1) + '.csv'
+    #     featurepath = r'E:\PycharmProjects\supply-chain\features\dailyfeature' + str(i+1) + '.csv'
     #     feature = pd.read_csv(featurepath)
     #     feature.rename(columns={'goods_total_click_x':'goods_total_click','goods_total_click_y':'goods_cart_total_click'},inplace=True)
     #     feature.to_csv(featurepath,index=False)
 
     # # 合并特征
     # for i in range(6):
-    #     dailyfeaturepath = r'E:\PycharmProjects\Task2Plus\features\daily7feature' + str(i + 1) + '.csv'
-    #     salefeaturepath = r'E:\PycharmProjects\Task2Plus\features\sale7feature' + str(i + 1) + '.csv'
+    #     dailyfeaturepath = r'E:\PycharmProjects\supply-chain\features\daily7feature' + str(i + 1) + '.csv'
+    #     salefeaturepath = r'E:\PycharmProjects\supply-chain\features\sale7feature' + str(i + 1) + '.csv'
     #     d = pd.read_csv(dailyfeaturepath)
     #     s = pd.read_csv(salefeaturepath)
     #     df = pd.merge(s, d, on='goods_id')
-    #     trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\train7' + str(i + 1) + '.csv'
+    #     trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\train7' + str(i + 1) + '.csv'
     #     df.to_csv(trainPath,index=False)
 
-    # Testdaily  = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\dailytest7days.csv')
-    # Testsale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\saletest7days.csv')
+    # Testdaily  = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\dailytest7days.csv')
+    # Testsale = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\saletest7days.csv')
     # df = pd.merge(Testsale, Testdaily, on='goods_id')
-    # df.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\saledailyTest7.csv', index=False)
+    # df.to_csv(r'E:\PycharmProjects\supply-chain\TestSets\saledailyTest7.csv', index=False)
     #
 
     # Strategy = {
@@ -47,10 +47,10 @@ if __name__ == '__main__':
     # }
     #
     # for i in range(6):
-    #     propath = r'E:\PycharmProjects\Task2Plus\features\promotefeature' + str(i + 1) + '.csv'
-    #     trapath = r'E:\PycharmProjects\Task2Plus\TrainSets\train' + str(i + 1) + '.csv'
+    #     propath = r'E:\PycharmProjects\supply-chain\features\promotefeature' + str(i + 1) + '.csv'
+    #     trapath = r'E:\PycharmProjects\supply-chain\TrainSets\train' + str(i + 1) + '.csv'
     #
-    #     tosale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\totalsale.csv')
+    #     tosale = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\totalsale.csv')
     #     promote = pd.read_csv(propath)
     #     train = pd.read_csv(trapath)
     #
@@ -74,12 +74,12 @@ if __name__ == '__main__':
     #     # del df['goods_promote_holidays_lastday']
     #
     #     df = pd.merge(df,tosale,on='sku_id')
-    #     writepath = r'E:\PycharmProjects\Task2Plus\TrainSets\trainPlus' + str(i + 1) + '.csv'
+    #     writepath = r'E:\PycharmProjects\supply-chain\TrainSets\trainPlus' + str(i + 1) + '.csv'
     #     df.to_csv(writepath,index=False)
     #
-    # TestPromote = pd.read_csv(r'E:\PycharmProjects\Task2Plus\features\TestPromotefeature.csv')
-    # test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\Test.csv')
-    # tosale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\totalsale.csv')
+    # TestPromote = pd.read_csv(r'E:\PycharmProjects\supply-chain\features\TestPromotefeature.csv')
+    # test = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\Test.csv')
+    # tosale = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\totalsale.csv')
     #
     # df = pd.merge(test, TestPromote, on='goods_id', how='left')
     #
@@ -102,18 +102,18 @@ if __name__ == '__main__':
     # # del df['goods_promote_holidays_lastday']
     #
     # df = pd.merge(df, tosale, on='sku_id')
-    # df.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestPlus.csv', index=False)
+    # df.to_csv(r'E:\PycharmProjects\supply-chain\TestSets\TestPlus.csv', index=False)
 
 
     # 合并标签
 
     # for i in range(6):
-    #     trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\trainWithLabel' + str(i + 1) + '.csv'
-    #     train7p = r'E:\PycharmProjects\Task2Plus\TrainSets\train7' + str(i + 1) + '.csv'
+    #     trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\trainWithLabel' + str(i + 1) + '.csv'
+    #     train7p = r'E:\PycharmProjects\supply-chain\TrainSets\train7' + str(i + 1) + '.csv'
     #     train = pd.read_csv(trainPath)
     #     train7 = pd.read_csv(train7p)
     #     finaltrain = pd.merge(train[train.columns[:-5]],train7,on=['sku_id','goods_id'],how='left')
-    #     fileName = r'E:\PycharmProjects\Task2Plus\TrainSets\Trainpplus' + str(i + 1) + '.csv'
+    #     fileName = r'E:\PycharmProjects\supply-chain\TrainSets\Trainpplus' + str(i + 1) + '.csv'
     #     finaltrain.to_csv(fileName,index=False)
 
 
@@ -127,11 +127,11 @@ if __name__ == '__main__':
 
     #
     # for i in range(6):
-    #     trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\Trainpplus' + str(i + 1) + '.csv'
-    #     labelPath = r'E:\PycharmProjects\Task2Plus\LabelSets\label' + str(i + 1) + '.csv'
+    #     trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\Trainpplus' + str(i + 1) + '.csv'
+    #     labelPath = r'E:\PycharmProjects\supply-chain\LabelSets\label' + str(i + 1) + '.csv'
     #     train = pd.read_csv(trainPath)
     #     label = pd.read_csv(labelPath)
     #     finaltrain = pd.merge(train,label,on='sku_id')
-    #     fileName = r'E:\PycharmProjects\Task2Plus\TrainSets\trainAllWithLabel' + str(i + 1) + '.csv'
+    #     fileName = r'E:\PycharmProjects\supply-chain\TrainSets\trainAllWithLabel' + str(i + 1) + '.csv'
     #     finaltrain.to_csv(fileName,index=False)
 

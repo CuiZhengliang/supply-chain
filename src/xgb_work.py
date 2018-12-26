@@ -36,7 +36,7 @@ if __name__ == '__main__':
         datas.append(pd.read_csv(trainPath))
     dataset = pd.concat(datas, axis=0)
     test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestPlus.csv')
-    # target = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\submit_example.csv')
+    # target = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\submit_example.csv')
     # test = pd.merge(test,target,on='sku_id')
 
     target = test[['sku_id']]

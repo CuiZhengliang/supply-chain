@@ -88,7 +88,7 @@ if __name__ == '__main__':
     #
     #     print(params)
     #     result = pd.DataFrame(params, index=range(2))
-    #     result.to_csv(r'E:\PycharmProjects\Task2Plus\params\result_params_week2.csv', index=False)
+    #     result.to_csv(r'E:\PycharmProjects\supply-chain\params\result_params_week2.csv', index=False)
     #
     #     min_merror = float('Inf')
     #     best_params['min_data_in_leaf'] = 0
@@ -124,7 +124,7 @@ if __name__ == '__main__':
     # print(params)
     #
     # result = pd.DataFrame(params, index=range(2))
-    # result.to_csv(r'E:\PycharmProjects\Task2Plus\params\result_params_week2.csv', index=False)
+    # result.to_csv(r'E:\PycharmProjects\supply-chain\params\result_params_week2.csv', index=False)
 
     params = {
         # 'task': 'train',
@@ -170,8 +170,8 @@ if __name__ == '__main__':
     # df = df.sort_values(by='importance', ascending=False)
     # df.to_csv("feature_score.csv", index=None)
     #
-    # val[['sku_id','week2','pre']].to_csv(r'E:\PycharmProjects\Task2Plus\var_test\val_week2.csv',index=False)
-    # online_test[['sku_id','week2','pre']].to_csv(r'E:\PycharmProjects\Task2Plus\var_test\online_week2.csv',index=False)
+    # val[['sku_id','week2','pre']].to_csv(r'E:\PycharmProjects\supply-chain\var_test\val_week2.csv',index=False)
+    # online_test[['sku_id','week2','pre']].to_csv(r'E:\PycharmProjects\supply-chain\var_test\online_week2.csv',index=False)
 
     test = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestAllPlus.csv')
     test.fillna(0, inplace=True)

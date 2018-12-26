@@ -123,7 +123,7 @@ if __name__ == '__main__':
 
     # test = test[['sku_id','week1','week2','week3','week4','week5']]
     #
-    # avg = pd.read_csv(r'E:\PycharmProjects\Task2Plus\output\PreByAvg.csv')
+    # avg = pd.read_csv(r'E:\PycharmProjects\supply-chain\output\PreByAvg.csv')
     # test = test.append({'sku_id':'SKb90aP4','week1':0,'week2':0,'week3':0,'week4':0,'week5':0},ignore_index=True)
     # test = pd.merge(avg[['sku_id']],test,on='sku_id')
 

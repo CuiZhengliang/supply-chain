@@ -701,7 +701,7 @@ def add_sale_feature(df=pd.DataFrame()):
         frame = fun(df)
         goods_sale_feature_data = pd.merge(goods_sale_feature_data, frame, on='goods_id')
 
-    sku_goods_relat = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goods_sku_relation.csv')
+    sku_goods_relat = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goods_sku_relation.csv')
 
     sale_feature_data = pd.merge(sku_goods_relat, sku_sale_feature_data, on='sku_id')
     sale_feature_data = pd.merge(sale_feature_data, goods_sale_feature_data, on='goods_id')
@@ -744,7 +744,7 @@ def add_sale_lastweek_feature(df=pd.DataFrame()):
         frame = fun(df)
         goods_sale_feature_data = pd.merge(goods_sale_feature_data, frame, on='goods_id')
 
-    sku_goods_relat = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goods_sku_relation.csv')
+    sku_goods_relat = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goods_sku_relation.csv')
 
     sale_feature_data = pd.merge(sku_goods_relat, sku_sale_feature_data, on='sku_id')
     sale_feature_data = pd.merge(sale_feature_data, goods_sale_feature_data, on='goods_id')
@@ -944,94 +944,88 @@ def sku_under_same_goods_num(df=pd.DataFrame()):
 
 if __name__ == '__main__':
 
-    # goods_brand_relat = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goodsinfo.csv')
-    # goods_brand_relat = goods_brand_relat[['goods_id','brand_id']].drop_duplicates()
-    #
-    # 得到daliy训练集关于goods和brand的对应特征
-    # Trainpath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsDailyTrainSet'
-    # for i in range(6):
-    #     trainPath = Trainpath + str(i+1) + '.csv'
-    #     df = pd.read_csv(trainPath)
-    #     # df = pd.merge(df,goods_brand_relat,on='goods_id')
-    #     goods = add_goods_feature(df)
-    #     # goodspath = r'E:\PycharmProjects\Task2Plus\features\goodsfeature' + str(i+1) + '.csv'
-    #     # goods.to_csv(goodspath, index=False)
-    #     # print('goods' + str(i+1) + 'finished.')
-    #     # brand = add_brand_feature(df)
-    #     # brandpath = r'E:\PycharmProjects\Task2Plus\features\brandfeature' + str(i+1) + '.csv'
-    #     # brand.to_csv(brandpath, index=False)
-    #     # print('brand' + str(i + 1) + 'finished.')
-    #     # tmp = pd.merge(goods, goods_brand_relat, on='goods_id')
-    #     # final = pd.merge(tmp, brand, on='brand_id')
-    #     finalpath = r'E:\PycharmProjects\Task2Plus\features\daily7feature' + str(i+1) + '.csv'
-    #     goods.to_csv(finalpath, index=False)
-    #     print('feature' + str(i + 1) + 'finished.')
+    goods_brand_relat = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goodsinfo.csv')
+    goods_brand_relat = goods_brand_relat[['goods_id','brand_id']].drop_duplicates()
 
-    Trainpath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsDailyTrainSet'
+    # 得到daliy训练集关于goods的对应特征，brand特征被删去是因为缺失值太多
+    Trainpath = r'E:\PycharmProjects\supply-chain\TrainSets\GoodsDailyTrainSet'
+    for i in range(6):
+        trainPath = Trainpath + str(i+1) + '.csv'
+        df = pd.read_csv(trainPath)
+        # df = pd.merge(df,goods_brand_relat,on='goods_id')
+        goods = add_goods_feature(df)
+        # goodspath = r'E:\PycharmProjects\supply-chain\features\goodsfeature' + str(i+1) + '.csv'
+        # goods.to_csv(goodspath, index=False)
+        # print('goods' + str(i+1) + 'finished.')
+        # brand = add_brand_feature(df)
+        # brandpath = r'E:\PycharmProjects\supply-chain\features\brandfeature' + str(i+1) + '.csv'
+        # brand.to_csv(brandpath, index=False)
+        # print('brand' + str(i + 1) + 'finished.')
+        # tmp = pd.merge(goods, goods_brand_relat, on='goods_id')
+        # final = pd.merge(tmp, brand, on='brand_id')
+        finalpath = r'E:\PycharmProjects\supply-chain\features\daily7feature' + str(i+1) + '.csv'
+        goods.to_csv(finalpath, index=False)
+        print('feature' + str(i + 1) + 'finished.')
+
+    Trainpath = r'E:\PycharmProjects\supply-chain\TrainSets\GoodsDailyTrainSet'
     for i in range(6):
         trainPath = Trainpath + str(i + 1) + '.csv'
         df = pd.read_csv(trainPath)
         goods = add_goods_lastweek_feature(df)
-        finalpath = r'E:\PycharmProjects\Task2Plus\features\daily7feature' + str(i + 1) + '.csv'
+        finalpath = r'E:\PycharmProjects\supply-chain\features\daily7feature' + str(i + 1) + '.csv'
         goods.to_csv(finalpath, index=False)
         print('feature' + str(i + 1) + 'finished.')
 
     for i in range(6):
-        trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsSaleTrainSet' + str(i + 1) + '.csv'
+        trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\GoodsSaleTrainSet' + str(i + 1) + '.csv'
         df = pd.read_csv(trainPath)
         frame = add_sale_lastweek_feature(df)
-        sale_feature_file_name = r'E:\PycharmProjects\Task2Plus\features\sale7feature' + str(i + 1) + '.csv'
+        sale_feature_file_name = r'E:\PycharmProjects\supply-chain\features\sale7feature' + str(i + 1) + '.csv'
         frame.to_csv(sale_feature_file_name, index=False)
         print('Feature' + str(i + 1) + 'finished!')
 
-    #
-    # for i in range(8):
-    #     trainPath = r'E:\PycharmProjects\Task2Plus\features\goodsfeature' + str(i+1) + '.csv'
-    #     df = pd.read_csv(trainPath)
-    #     df.rename(columns={'goods_total_click_x':'goods_total_click','goods_total_click_y':'goods_cart_total_click'},inplace=True)
-    #     df.to_csv(trainPath,index=False)
 
-    # #得到daliy测试集关于goods和brand的对应特征
-    # Testdaily = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsDailyTestSet.csv')
-    # # Testdaily = pd.merge(Testdaily, goods_brand_relat, on='goods_id')
-    # Testgoods = add_goods_feature(Testdaily)
-    # # Testbrand = add_brand_feature(Testdaily)
-    # # tmp = pd.merge(Testgoods,goods_brand_relat,on='goods_id')
-    # # final = pd.merge(tmp,Testbrand,on='brand_id')
-    # Testgoods.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestDailyfeature.csv',index=False)
+    #得到daliy测试集关于goods和brand的对应特征
+    Testdaily = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\GoodsDailyTestSet.csv')
+    # Testdaily = pd.merge(Testdaily, goods_brand_relat, on='goods_id')
+    Testgoods = add_goods_feature(Testdaily)
+    # Testbrand = add_brand_feature(Testdaily)
+    # tmp = pd.merge(Testgoods,goods_brand_relat,on='goods_id')
+    # final = pd.merge(tmp,Testbrand,on='brand_id')
+    Testgoods.to_csv(r'E:\PycharmProjects\supply-chain\TestSets\TestDailyfeature.csv',index=False)
 
     # 计算销售表的关于sku和goods的sale特征
-    # for i in range(6):
-    #     trainPath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsSaleTrainSet' + str(i + 1) + '.csv'
-    #     df = pd.read_csv(trainPath)
-    #     frame = add_sale_feature(df)
-    #     sale_feature_file_name = r'E:\PycharmProjects\Task2Plus\features\salefeature' + str(i + 1) + '.csv'
-    #     frame.to_csv(sale_feature_file_name, index=False)
-    #     print('Feature' + str(i + 1) + 'finished!')
-    #
-    # # 得到daliy测试集关于goods和brand的对应特征
+    for i in range(6):
+        trainPath = r'E:\PycharmProjects\supply-chain\TrainSets\GoodsSaleTrainSet' + str(i + 1) + '.csv'
+        df = pd.read_csv(trainPath)
+        frame = add_sale_feature(df)
+        sale_feature_file_name = r'E:\PycharmProjects\supply-chain\features\salefeature' + str(i + 1) + '.csv'
+        frame.to_csv(sale_feature_file_name, index=False)
+        print('Feature' + str(i + 1) + 'finished!')
 
-    TestSale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsSaleTestSet.csv')
+    # 得到daliy测试集关于goods和brand的对应特征
+
+    TestSale = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\GoodsSaleTestSet.csv')
     frame = add_sale_lastweek_feature(TestSale)
-    frame.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestSale7feature.csv', index=False)
+    frame.to_csv(r'E:\PycharmProjects\supply-chain\TestSets\TestSale7feature.csv', index=False)
 
-    Testdaily = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\GoodsDailyTestSet.csv')
+    Testdaily = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\GoodsDailyTestSet.csv')
     Testgoods = add_goods_lastweek_feature(Testdaily)
-    Testgoods.to_csv(r'E:\PycharmProjects\Task2Plus\TestSets\TestDaily7feature.csv', index=False)
+    Testgoods.to_csv(r'E:\PycharmProjects\supply-chain\TestSets\TestDaily7feature.csv', index=False)
 
     # promote feature
 
-    # ProPath = r'E:\PycharmProjects\Task2Plus\TrainSets\GoodsPromoteTrainSet'
-    #
-    # for i in range(6):
-    #     propath = ProPath + str(i + 1) + '.csv'
-    #     df = pd.read_csv(propath)
-    #     frame = add_promote_feature(df)
-    #     goods_feature_file_name = r'E:\PycharmProjects\Task2Plus\features\promotefeature' + str(i + 1) + '.csv'
-    #     frame.to_csv(goods_feature_file_name,index=False)
-    #     print('Feature' +str(i + 1) + 'finished!')
+    ProPath = r'E:\PycharmProjects\supply-chain\TrainSets\GoodsPromoteTrainSet'
 
-    # testpro = pd.read_csv(r'E:\PycharmProjects\Task2Plus\TestSets\PromoteTestSet.csv')
-    # frame = add_promote_feature(testpro)
-    # goods_feature_file_name = r'E:\PycharmProjects\Task2Plus\features\TestPromotefeature.csv'
-    # frame.to_csv(goods_feature_file_name, index=False)
+    for i in range(6):
+        propath = ProPath + str(i + 1) + '.csv'
+        df = pd.read_csv(propath)
+        frame = add_promote_feature(df)
+        goods_feature_file_name = r'E:\PycharmProjects\supply-chain\features\promotefeature' + str(i + 1) + '.csv'
+        frame.to_csv(goods_feature_file_name,index=False)
+        print('Feature' +str(i + 1) + 'finished!')
+
+    testpro = pd.read_csv(r'E:\PycharmProjects\supply-chain\TestSets\PromoteTestSet.csv')
+    frame = add_promote_feature(testpro)
+    goods_feature_file_name = r'E:\PycharmProjects\supply-chain\features\TestPromotefeature.csv'
+    frame.to_csv(goods_feature_file_name, index=False)

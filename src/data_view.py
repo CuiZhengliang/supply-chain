@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 if __name__ == '__main__':
-    # sale = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goodsalePlus.csv')
+    # sale = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goodsalePlus.csv')
     # plt.title('sale information')
     market = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\marketing.csv')
     # sale = sale[['data_date','goods_num']].groupby('data_date').agg('sum').reset_index()
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     # plt.plot(pd.to_datetime(sale.data_date.iloc[244:,], format='%Y%m%d'), sale.goods_num.iloc[244:,])
 
 
-    # daily = pd.read_csv(r'E:\PycharmProjects\Task2Plus\dataset\goodsdaily.csv')
+    # daily = pd.read_csv(r'E:\PycharmProjects\supply-chain\dataset\goodsdaily.csv')
     # df = daily.drop(['goods_id'],axis=1)
     # df = df.groupby('data_date').agg('sum').reset_index()
     # df.data_date = pd.to_datetime(df.data_date,format='%Y%m%d')
