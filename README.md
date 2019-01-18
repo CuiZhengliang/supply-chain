@@ -1,5 +1,6 @@
 # supply-chain
 供应链需求预测
+#### 很旧之前写的一个数据挖掘模型，寒假再好好总结下
 
 环境:Windows10,python==3.6.5,lightgbm==2.1.2,xgboost==0.81
 
